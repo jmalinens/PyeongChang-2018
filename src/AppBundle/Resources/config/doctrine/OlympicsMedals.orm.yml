@@ -1,0 +1,21 @@
+AppBundle\Entity\OlympicsMedals:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\OlympicsMedalsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        gold:
+            type: integer
+        silver:
+            type: integer
+        bronze:
+            type: integer
+    lifecycleCallbacks: {  }

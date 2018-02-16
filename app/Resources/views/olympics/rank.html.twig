@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <h2>List of countries by the total {{ heading }} <a href="{{ back_url }}" class="back">Back</a></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Country</th>
+                        <th>Gold</th>
+                        <th>Silver</th>
+                        <th>Bronze</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results %}
+                    <tr>
+                        <td>{{ loop.index0 + 1 }}.</td>
+                        <td>{{ row.0.title }}</td>
+                        <td>{{ row.0.gold }}</td>
+                        <td>{{ row.0.silver }}</td>
+                        <td>{{ row.0.bronze }}</td>
+                        <td>{{ row.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Total medals: {{ total_medals }}</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    table { width: 100%; border-collapse: collapse; }
+    table th { background: lightgray; }
+    table th, table td { border: 1px solid darkgray; padding: 5px; }
+    p { margin-top: 1em; }
+    a.back { float: right; }
+</style>
+{% endblock %}
